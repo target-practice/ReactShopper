@@ -1,0 +1,49 @@
+# EditorConfig helps developers define and maintain consistent
+# coding styles between different editors and IDEs.
+#
+# ~ editorconfig.org
+# ----------------------------------------------------------------
+
+# top-most EditorConfig file
+root = true
+
+# We recommend you to keep these unchanged.
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = tab
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[package.json]
+indent_style = space
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.svg]
+indent_style = space
+tab_width = 2
+
+# Tab indentation (no size specified)
+[*.html]
+charset = utf-8
+indent_style = tab
+indent_size = 4
+tab_width = 4
+
+# 2 space indentation
+[*.{js,py,json}]
+indent_style = space
+indent_size = 2
+
+[{*.rb, *.yml, *.js.map}]
+indent_style = space
+indent_size = 2
+
+# Matches the exact files either package.json or .travis.yml
+[{package.json,.travis.yml}]
+indent_style = space
+indent_size = 2
