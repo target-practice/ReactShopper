@@ -13,7 +13,7 @@ class App extends React.Component {
         </div>
         <div className="row">
           <h1>Hello from React Shopper!!!</h1>
-          <Home name={'Tony'} age={30} />
+          <Home name={'Tony'} initAge={30} />
         </div>
       </div>
     );

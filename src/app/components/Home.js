@@ -4,12 +4,20 @@ import PropTypes from 'prop-types';
 export class Home extends React.Component {
   constructor(props) {
     super();
-    this.age = props.age;
+    // this.age = props.age;
+    this.state = {
+      age: props.initAge,
+      status: 0,
+    };
   }
 
   makeOlder() {
-    this.age += 3;
-    console.log('Current age', this.age);
+    // this.age += 3;
+    // console.log('Current age', this.age);
+
+    this.setState({
+      age: (this.state.age += 3),
+    });
   }
 
   render() {
@@ -25,8 +33,9 @@ export class Home extends React.Component {
 
         {/* Use props to output dynamic data */}
         <p>
-          Your name is {this.props.name}, age is {this.age}
+          Your name is {this.props.name}, age is {this.state.age}
         </p>
+        <p>Status: {this.state.status}</p>
         <p>
           <button className="btn" onClick={this.makeOlder.bind(this)}>
             Make me older!
@@ -42,7 +51,7 @@ export class Home extends React.Component {
  */
 Home.propTypes = {
   name: PropTypes.string,
-  age: PropTypes.number,
+  initAge: PropTypes.number,
 };
 
 // ERROR: Uncaught TypeError: Cannot read property 'string' of undefined
