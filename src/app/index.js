@@ -9,7 +9,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          <Header />
+          <Header brandName="React Shopper" />
         </div>
         <div className="row">
           <h1>Hello from React Shopper!!!</h1>
