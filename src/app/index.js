@@ -34,6 +34,7 @@ class App extends React.Component {
             initAge={30}
             greet={this.onGreet}
             changeBrand={this.onChangeBrandName.bind(this)}
+            initBrandName={this.state.brandName}
           />
         </div>
       </div>

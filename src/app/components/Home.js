@@ -8,7 +8,7 @@ export class Home extends React.Component {
     this.state = {
       age: props.initAge,
       status: 0,
-      brandName: 'React Beginner',
+      brandName: props.initBrandName,
     };
   }
 
@@ -23,6 +23,12 @@ export class Home extends React.Component {
 
   changeBrandName() {
     this.props.changeBrand(this.state.brandName);
+  }
+
+  onChangeInputBrandName(event) {
+    this.setState({
+      brandName: event.target.value,
+    });
   }
 
   render() {
@@ -52,6 +58,23 @@ export class Home extends React.Component {
           </button>
         </p>
         <hr />
+        <div className="form-group">
+          <label htmlFor="">Brand Name (with Two-Way Binding)</label>
+          <input
+            type="text"
+            className="form-control"
+            value={this.state.brandName}
+            onChange={this.onChangeInputBrandName.bind(this)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="">Brand Name (with 'default value')</label>
+          <input
+            type="text"
+            className="form-control"
+            defaultValue={this.props.initBrandName}
+          />
+        </div>
         <p>
           <button className="btn" onClick={this.changeBrandName.bind(this)}>
             Change Brand Name
@@ -70,6 +93,7 @@ Home.propTypes = {
   initAge: PropTypes.number,
   greet: PropTypes.func,
   changeBrand: PropTypes.func,
+  initBrandName: PropTypes.string,
 };
 
 // ERROR: Uncaught TypeError: Cannot read property 'string' of undefined
