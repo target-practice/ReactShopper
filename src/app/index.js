@@ -5,6 +5,9 @@ import { Header } from './components/Header';
 import { Home } from './components/Home';
 
 class App extends React.Component {
+  onGreet() {
+    alert('hello');
+  }
   render() {
     return (
       <div className="container">
@@ -13,7 +16,7 @@ class App extends React.Component {
         </div>
         <div className="row">
           <h1>Hello from React Shopper!!!</h1>
-          <Home name={'Tony'} initAge={30} />
+          <Home name={'Tony'} initAge={30} greet={this.onGreet} />
         </div>
       </div>
     );

@@ -41,6 +41,11 @@ export class Home extends React.Component {
             Make me older!
           </button>
         </p>
+        <p>
+          <button className="btn" onClick={this.props.greet}>
+            Greet
+          </button>
+        </p>
       </div>
     );
   }
@@ -52,6 +57,7 @@ export class Home extends React.Component {
 Home.propTypes = {
   name: PropTypes.string,
   initAge: PropTypes.number,
+  greet: PropTypes.func,
 };
 
 // ERROR: Uncaught TypeError: Cannot read property 'string' of undefined
