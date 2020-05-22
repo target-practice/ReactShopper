@@ -8,6 +8,7 @@ export class Home extends React.Component {
     this.state = {
       age: props.initAge,
       status: 0,
+      brandName: 'React Beginner',
     };
   }
 
@@ -18,6 +19,10 @@ export class Home extends React.Component {
     this.setState({
       age: (this.state.age += 3),
     });
+  }
+
+  changeBrandName() {
+    this.props.changeBrand(this.state.brandName);
   }
 
   render() {
@@ -46,6 +51,12 @@ export class Home extends React.Component {
             Greet
           </button>
         </p>
+        <hr />
+        <p>
+          <button className="btn" onClick={this.changeBrandName.bind(this)}>
+            Change Brand Name
+          </button>
+        </p>
       </div>
     );
   }
@@ -58,6 +69,7 @@ Home.propTypes = {
   name: PropTypes.string,
   initAge: PropTypes.number,
   greet: PropTypes.func,
+  changeBrand: PropTypes.func,
 };
 
 // ERROR: Uncaught TypeError: Cannot read property 'string' of undefined
