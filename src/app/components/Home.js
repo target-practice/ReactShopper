@@ -10,7 +10,66 @@ export class Home extends React.Component {
       status: 0,
       brandName: props.initBrandName,
     };
+
+    setTimeout(() => {
+      this.setState({
+        status: 1,
+      });
+    }, 3000);
+
+    console.log('Constructor');
   }
+
+  // ---------------------------------
+  //
+  // Component Lifecycle methods/hooks
+  //
+  // ---------------------------------
+
+  /** Executes first in the lifecycle, even before any render is done */
+  componentWillMount() {
+    console.log('Component will mount');
+  }
+
+  /** Executes after rendering is done */
+  componentDidMount() {
+    console.log('Component did mount');
+  }
+
+  /** Executes whenever some properties get updated */
+  componentWillReceiveProps(updatedProps) {
+    console.log('Component will receive props', updatedProps);
+  }
+
+  /** Checks whether a Component should be updated */
+  shouldComponentUpdate(updatedProps, updatedState) {
+    console.log('Should Component update', updatedProps, updatedState);
+
+    // if (updatedState.status === 1) return false;
+
+    return true;
+  }
+
+  /** Executes when shouldComponentUpdate returns 'true' */
+  componentWillUpdate(updatedProps, updatedState) {
+    console.log('Component will update', updatedProps, updatedState);
+  }
+
+  /** Executes when Component has been updated/re-rendered */
+  componentDidUpdate(previousProps, previousState) {
+    console.log('Component did update', previousProps, previousState);
+  }
+
+  /** Executes finally, at the end of the lifecycle */
+  componentWillUnmount() {
+    console.log('Component will unmount');
+  }
+
+  // ---------------------------------
+  //
+  // Custom methods
+  //
+  // ---------------------------------
 
   makeOlder() {
     // this.age += 3;

@@ -9,6 +9,7 @@ class App extends React.Component {
     super();
     this.state = {
       brandName: 'React Shopper',
+      homeMounted: true,
     };
   }
   onGreet() {
@@ -21,7 +22,26 @@ class App extends React.Component {
     });
   }
 
+  onChangeHomeMounted() {
+    this.setState({
+      homeMounted: !this.state.homeMounted,
+    });
+  }
+
   render() {
+    let homeComponent = '';
+    if (this.state.homeMounted) {
+      homeComponent = (
+        <Home
+          name={'Tony'}
+          initAge={30}
+          greet={this.onGreet}
+          changeBrand={this.onChangeBrandName.bind(this)}
+          initBrandName={this.state.brandName}
+        />
+      );
+    }
+
     return (
       <div className="container">
         <div className="row">
@@ -29,13 +49,17 @@ class App extends React.Component {
         </div>
         <div className="row">
           <h1>Hello from React Shopper!!!</h1>
-          <Home
-            name={'Tony'}
-            initAge={30}
-            greet={this.onGreet}
-            changeBrand={this.onChangeBrandName.bind(this)}
-            initBrandName={this.state.brandName}
-          />
+
+          {homeComponent}
+
+          <p>
+            <button
+              className="btn"
+              onClick={this.onChangeHomeMounted.bind(this)}
+            >
+              (Un)Mount Home Component
+            </button>
+          </p>
         </div>
       </div>
     );
